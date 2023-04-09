@@ -1,18 +1,52 @@
-local lsp = require('lsp-zero').preset({'recommended'})
---setup snip
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-require('luasnip.loaders.from_vscode').lazy_load()
+local lsp = require("lsp-zero")
 
+lsp.preset("recommended")
 
-cmp.setup({
-    mapping = {
-        ['<Tab>'] = cmp_action.luasnip_supertab(),
-        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+lsp.ensure_installed({
+    'html',
+    'cssls',
+    'lua_ls',
+    'tailwindcss',
+    'vimls',
+    'tsserver',
+    'rust_analyzer',
+})
+
+-- Fix Undefined global 'vim'
+lsp.configure('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
     }
 })
 
-lsp.on_attach(function(client, bufnr)
+
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true })
+})
+
+
+lsp.setup_nvim_cmp({
+    mapping = cmp_mappings
+})
+lsp.set_preferences({
+    suggest_lsp_servers = false,
+    sign_icons = {
+        error = 'E',
+        warn = 'W',
+        hint = 'H',
+        info = 'I'
+    }
+})
+
+lsp.on_attach(function(_, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -27,12 +61,9 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.set_sign_icons({
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»'
-})
-
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
 
