@@ -15,5 +15,5 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require("lazy")
 
 lazy.setup({
-	{ import = "kickstart.plugins" },
+	{ import = "user.plugins" },
 })

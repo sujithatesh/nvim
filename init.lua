@@ -1,1 +1,1 @@
-require ("kickstart.control")
+require ("user.control")

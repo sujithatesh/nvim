@@ -108,7 +108,7 @@ return {
 	}
       })
 
-      local on_attach = require('kickstart.control.lsp_keymaps').on_attach
+      local on_attach = require('user.control.lsp_keymaps').on_attach
       for name, config in pairs(servers) do
 	require("lspconfig")[name].setup({
 	  capabilities = capabilities,
