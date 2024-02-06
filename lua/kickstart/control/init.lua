@@ -1,0 +1,6 @@
+require 'kickstart.control.keymaps'
+require 'kickstart.control.lazy'
+require 'kickstart.control.options'
+require 'kickstart.control.plugin_keymaps'
+require 'kickstart.control.lsp_keymaps'
+require 'kickstart.control.highlight_yank'
