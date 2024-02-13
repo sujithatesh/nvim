@@ -1,1 +1,1 @@
-require ("user.control")
+require ("control")

@@ -1,6 +1,0 @@
-require 'user.control.keymaps'
-require 'user.control.lazy'
-require 'user.control.options'
-require 'user.control.plugin_keymaps'
-require 'user.control.lsp_keymaps'
-require 'user.control.highlight_yank'

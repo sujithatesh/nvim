@@ -16,7 +16,6 @@ return {
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
-    ft = {"c", "lua"},
     config = function()
       -- Setup mason so it can manage 3rd party LSP servers
       require("mason").setup({
@@ -24,7 +23,6 @@ return {
 	  border = "rounded",
 	},
       })
-
       local cmp = require('cmp')
       local luasnip = require('luasnip')
 
@@ -70,8 +68,8 @@ return {
 	-- gopls = {},
 	-- pyright = {},
 	-- rust_analyzer = {},
-	-- tsserver = {},
-	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
+	tsserver = {},
+	html = { filetypes = { 'html', 'twig', 'hbs'} },
 	lua_ls = {
 	  Lua = {
 	    workspace = { checkThirdParty = false },
@@ -108,7 +106,7 @@ return {
 	}
       })
 
-      local on_attach = require('user.control.lsp_keymaps').on_attach
+      local on_attach = require('control.lsp_keymaps').on_attach
       for name, config in pairs(servers) do
 	require("lspconfig")[name].setup({
 	  capabilities = capabilities,
