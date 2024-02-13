@@ -1,5 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -9,6 +10,9 @@ vim.g.maplocalleader = ' '
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- WTF is this 
+vim.keymap.set({ 'i', 'n', 'v' }, '<C-c>', '<Esc>', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -37,7 +41,6 @@ vim.keymap.set('i', '<A-l>', '<C-\\><C-N><C-w>l', {noremap = true})
 
 -- Normal mode mappings
 vim.keymap.set('n', '<A-h>', '<C-w>h', {noremap = true})
-vim.keymap.set('n', '<A-j>', '<C-w>j', {noremap = true})
 vim.keymap.set('n', '<A-k>', '<C-w>k', {noremap = true})
 vim.keymap.set('n', '<A-l>', '<C-w>l', {noremap = true})
 ----------------------------------------------------------------------------------------------------------------
