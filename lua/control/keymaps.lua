@@ -12,7 +12,7 @@ vim.g.maplocalleader = ' '
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- WTF is this 
-vim.keymap.set({ 'i', 'n', 'v' }, '<C-c>', '<Esc>', { silent = true })
+vim.keymap.set({ 'i', 'n', 'v', 'c' }, '<C-c>', '<Esc>', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -44,3 +44,6 @@ vim.keymap.set('n', '<A-h>', '<C-w>h', {noremap = true})
 vim.keymap.set('n', '<A-k>', '<C-w>k', {noremap = true})
 vim.keymap.set('n', '<A-l>', '<C-w>l', {noremap = true})
 ----------------------------------------------------------------------------------------------------------------
+   
+-- Telescope themepicker
+vim.keymap.set('n', '<leader>tt', ":Telescope colorscheme<cr>", {noremap = true, desc = 'Telescope colorscheme'})

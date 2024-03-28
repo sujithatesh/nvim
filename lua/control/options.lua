@@ -3,6 +3,10 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+vim.wo.relativenumber = true
+
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -34,4 +38,20 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+vim.o.splitright = true
+
+vim.o.splitright = true
+
+vim.o.makeprg="./run.sh"
+
+vim.api.nvim_create_autocmd({"TermOpen", "TermEnter"}, {
+  pattern = { "term://*" },
+  callback = function()
+    vim.wo.relativenumber	= false
+    vim.wo.number		= false
+    vim.o.signcolumn		= "no"
+    vim.cmd([[ startinsert ]])
+  end,
+})
 

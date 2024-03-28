@@ -1,3 +1,5 @@
 return {
-  { 'folke/neodev.nvim',                 opts = {}, ft = "lua" },
+	'folke/neodev.nvim',
+	opts = {},
+	ft = "lua"
 }
