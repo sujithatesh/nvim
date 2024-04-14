@@ -43,6 +43,7 @@ vim.keymap.set('i', '<A-l>', '<C-\\><C-N><C-w>l', {noremap = true})
 vim.keymap.set('n', '<A-h>', '<C-w>h', {noremap = true})
 vim.keymap.set('n', '<A-k>', '<C-w>k', {noremap = true})
 vim.keymap.set('n', '<A-l>', '<C-w>l', {noremap = true})
+vim.keymap.set('n', '<A-j>', '<C-w>j', {noremap = true})
 ----------------------------------------------------------------------------------------------------------------
    
 -- Telescope themepicker

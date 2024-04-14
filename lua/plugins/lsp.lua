@@ -108,6 +108,7 @@ return {
 					{ border = "rounded" }),
 			}
 			vim.diagnostic.config({
+				update_in_insert = true,
 				severity_sort = true,
 				signs = {
 					text = {
@@ -118,12 +119,12 @@ return {
 					severity = vim.diagnostic.severity.ERROR
 				},
 				float = {
-					pos = 1,
 					border = "rounded",
-					focusable = false,
+					focusable = true,
 					style = 'minimal',
 					source = 'always',
 					header = '',
+					scope = 'line',
 					prefix = '',
 				},
 				virtual_text = {
@@ -143,5 +144,4 @@ return {
 			end
 		end
 	}
-
 }
