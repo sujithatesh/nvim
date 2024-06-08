@@ -41,9 +41,13 @@ vim.o.termguicolors = true
 
 vim.o.splitright = true
 
-vim.o.splitright = true
-
 vim.o.makeprg="./run.sh"
+
+vim.g.netrw_keep_dir = 0 
+vim.g.netrw_banner = 0;
+vim.g.netrw_sort_options = {'sortdirs', 'slash'}
+vim.g.netrw_preview = 1
+vim.g.netrw_list_hide = '^\\./$'
 
 vim.api.nvim_create_autocmd({"TermOpen", "TermEnter"}, {
   pattern = { "term://*" },

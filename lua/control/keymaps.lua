@@ -26,7 +26,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 ----------------------------------------------------------------------------------------------------------------
 -- Terminal mode mappings
-vim.keymap.set('n', '<leader>t', ':lua ToggleTerminal()<CR>', {noremap = true})
 --
 vim.keymap.set('t', '<A-h>', '<C-\\><C-N><C-w>h', {noremap = true})
 vim.keymap.set('t', '<A-j>', '<C-\\><C-N><C-w>j', {noremap = true})
@@ -47,4 +46,4 @@ vim.keymap.set('n', '<A-j>', '<C-w>j', {noremap = true})
 ----------------------------------------------------------------------------------------------------------------
    
 -- Telescope themepicker
-vim.keymap.set('n', '<leader>tt', ":Telescope colorscheme<cr>", {noremap = true, desc = 'Telescope colorscheme'})
+vim.keymap.set('n', '<leader>t', ":Telescope colorscheme<cr>", {noremap = true, desc = 'Telescope colorscheme'})

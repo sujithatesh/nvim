@@ -7,6 +7,7 @@ return {
 		-- Only load if `make` is available. Make sure you have the system
 		-- requirements installed.
 		{
+
 			'nvim-telescope/telescope-fzf-native.nvim',
 			-- NOTE: If you are having trouble with this installation,
 			--       refer to the README for telescope-fzf-native for more instructions.
@@ -21,14 +22,9 @@ return {
 		local actions = require("telescope.actions")
 
 		require("telescope").setup({
-			require "telescope".setup {
-				pickers = {
-					colorscheme = {
-						enable_preview = true
-					},
-					find_files = {
-						hidden = true
-					}
+			pickers = {
+				colorscheme = {
+					enable_preview = true
 				}
 			},
 			defaults = {
@@ -71,7 +67,7 @@ return {
 
 			-- Find the Git root directory from the current file's path
 			local git_root = vim.fn.systemlist('git -C ' ..
-			vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
+				vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
 			if vim.v.shell_error ~= 0 then
 				print 'Not a git repository. Searching on current working directory'
 				return cwd
@@ -102,10 +98,9 @@ return {
 				winblend = 10,
 				previewer = false,
 			})
-		end, { desc = '[/] Fuzzily search in current buffer' })
+			end, { desc = '[/] Fuzzily search in current buffer' })
 
 		local function telescope_live_grep_open_files()
-			print('hi')
 			require('telescope.builtin').live_grep {
 				grep_open_files = true,
 				prompt_title = 'Live Grep in Open Files',
@@ -113,7 +108,7 @@ return {
 		end
 		vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 		vim.keymap.set('n', '<leader>ss',
-			function() require('telescope.builtin').builtin { desc = '[S]earch [S]elect Telescope' } end)
+		function() require('telescope.builtin').builtin { desc = '[S]earch [S]elect Telescope' } end)
 		vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 		vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 		vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
