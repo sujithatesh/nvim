@@ -41,7 +41,9 @@ vim.o.termguicolors = true
 
 vim.o.splitright = true
 
-vim.o.makeprg="./run.sh"
+vim.o.makeprg = "./run.sh"
+
+vim.opt.swapfile = false
 
 vim.g.netrw_keep_dir = 0 
 vim.g.netrw_banner = 0;

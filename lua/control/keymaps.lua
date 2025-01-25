@@ -11,6 +11,8 @@ vim.g.maplocalleader = ' '
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+vim.keymap.set('n', '<leader>p', '<Cmd>:make<Cr>',{ desc = 'Open diagnostics list' })
+
 -- WTF is this 
 vim.keymap.set({ 'i', 'n', 'v', 'c' }, '<C-c>', '<Esc>', { silent = true })
 

@@ -1,6 +1,6 @@
 return {
 	-- LSP Configuration & Plugins
-	{
+	--[[ {
 		'neovim/nvim-lspconfig',
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -25,6 +25,7 @@ return {
 			})
 			local cmp = require('cmp')
 			local luasnip = require('luasnip')
+			local lspconfig = require('lspconfig')
 
 			require('luasnip.loaders.from_vscode').lazy_load()
 			luasnip.config.setup {
@@ -76,6 +77,12 @@ return {
 			}
 
 			local servers = {
+				gopls = {
+					filetypes = {'go'}
+				},
+				glsl_analyzer = {
+					filetypes = {'vs', 'fs', 'glsl'}
+				},
 				clangd = {
 					filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
 				},
@@ -86,7 +93,12 @@ return {
 				rust_analyzer = {
 					filetypes = { 'rust', 'cargo' },
 				},
-				tsserver = {},
+				denols = {
+					filetypes = { 'javascript', 'typescript' },
+					setup = {
+						root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+					}
+				},
 				html = { filetypes = { 'html', 'twig', 'hbs' } },
 				lua_ls = {
 					Lua = {
@@ -140,8 +152,9 @@ return {
 					handlers = vim.tbl_deep_extend("force", {}, default_handlers, config.handlers or {}),
 					on_attach = on_attach,
 					settings = config.settings,
+					setup = config.setup
 				})
 			end
 		end
-	}
+	} ]]
 }
